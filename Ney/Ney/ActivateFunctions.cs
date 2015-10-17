@@ -2,7 +2,7 @@
 
 namespace Ney
 {
-    class ActivateFunctions
+    public class ActivateFunctions
     {
         private int ActFuncIndex = -1; //Индекс активационной функции
         private double Threshold = double.NaN; //Граница
