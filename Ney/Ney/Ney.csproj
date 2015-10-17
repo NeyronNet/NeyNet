@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>f98cb1d2-a8ee-4a2f-b28d-f3ff9486944d</ProjectGuid>
+    <ProjectGuid>c11a8276-3ae5-47f1-8ffd-0a045749fdfe</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>csharpnet</RootNamespace>
-    <AssemblyName>csharpnet</AssemblyName>
+    <RootNamespace>Ney</RootNamespace>
+    <AssemblyName>Ney</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

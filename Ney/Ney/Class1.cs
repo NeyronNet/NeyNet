@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace csharpnet
+namespace Ney
 {
     public class Class1
     {
