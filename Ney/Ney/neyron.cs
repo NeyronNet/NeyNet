@@ -34,34 +34,33 @@ namespace Ney
             get { return Output; }
         }
 
+        /// <summary>
+        /// Конструктор нейрона со случайными весами
+        /// </summary>
+        /// <param name="_inputs">Массив нейронов, являющихся входом данного нейрона</param>
+        public neyron(neyron[] _inputs)
+        {
+            foreach (neyron element in _inputs)
+            {
+                links link = new links(element, GetRandomDouble());
+                Inputs.Add(link);
+            }
+        }
 
         /// <summary>
-        /// Конструктор нейрона
+        /// Конструктор нейрона с заданными весами
         /// </summary>
         /// <param name="_inputs">Массив нейронов, являющихся входом данного нейрона</param>
         /// <param name="_weigth">Соответствующие им веса</param>
         public neyron(neyron[] _inputs, double[] _weigth)
         {
-            
-            if (_weigth.Length == 0)
+            int i = 0;
+            foreach (neyron element in _inputs)
             {
-                foreach (neyron element in _inputs)
-                {
-                    links link = new links(element, GetRandomDouble());
-                    Inputs.Add(link);
-                }
+                links link = new links(element, _weigth[i]);
+                Inputs.Add(link);
+                i++;
             }
-            else
-            {
-                int i = 0;
-                foreach (neyron element in _inputs)
-                {
-                    links link = new links(element, _weigth[i]);
-                    Inputs.Add(link);
-                    i++;
-                }
-            }
-            
         }
 
         /// <summary>
