@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+// TODO: Доделать исходящие связи
 namespace Ney
 {
     public class neyron
@@ -35,6 +33,7 @@ namespace Ney
         {
             get { return Output; }
         }
+
         /// <summary>
         /// Конструктор нейрона со случайными весами
         /// </summary>
@@ -47,6 +46,7 @@ namespace Ney
                 Inputs.Add(link);
             }
         }
+
         /// <summary>
         /// Конструктор нейрона с заданными весами
         /// </summary>
@@ -62,6 +62,7 @@ namespace Ney
                 i++;
             }
         }
+
         /// <summary>
         /// Пустой конструктор
         /// </summary>
@@ -69,6 +70,7 @@ namespace Ney
         {
             
         }
+
         /// <summary>
         /// Добавление входящей связи к нейрону
         /// </summary>
@@ -87,16 +89,18 @@ namespace Ney
             }
             Inputs.Add(link);
         }
+
         /// <summary>
-        /// Добавление ссылки на связь, являющейся исходящей. Для облегчения обучения.
+        /// Добавление ссылки на связь, являющейся исходящей. Для облегчения обучения
         /// </summary>
         /// <param name="_link">Структура связи</param>
         public void addOutput(ref links _link)
         {
             Outputs.Add(_link);
         }
+
         /// <summary>
-        /// Рассчет выхода нейрона. Выход помещается в поле NeyronOutput
+        /// Рассчет выхода нейрона. Выход помещается в поле Out
         /// </summary>
         /// <param name="ActFunc">Объект типа "активационная функция"</param>
         public void calculate(ActivateFunctions ActFunc)
@@ -108,6 +112,7 @@ namespace Ney
             }
             Output = ActFunc.Calculate(Sum);
         }
+
         /// <summary>
         /// Костыль для получения отличных от 0 значений
         /// </summary>

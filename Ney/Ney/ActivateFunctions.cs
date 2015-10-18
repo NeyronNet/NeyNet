@@ -37,6 +37,15 @@ namespace Ney
 
         }
 
+        public double ActFuncType
+        {
+            set { if (value >= 0 ) { ActFuncIndex = (int)value; } }
+        }
+        public String ActFunc
+        {
+            get { return ActivateFunctionsList()[ActFuncIndex]; }
+        }
+
         /// <summary>
         /// Конструктор
         /// </summary>
