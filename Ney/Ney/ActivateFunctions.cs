@@ -6,7 +6,7 @@ namespace Ney
     {
         private int ActFuncIndex = -1; //Индекс активационной функции
         private double Threshold,min,max = double.NaN; //Граница
-        private double T = double.NaN; //Коэфициент
+        private double[] T; //Коэфициент
         /// <summary>
         /// Минимум активационной функции
         /// </summary>
@@ -54,8 +54,17 @@ namespace Ney
         /// </summary>
         /// <param name="_ActFunc">Активационная функция. Список в через ActivateFunctionsList</param>
         /// <param name="_threshold">Порог активации</param>
-        /// <param name="_t">Коэфициент обучения</param>
+        /// <param name="_t">Коэфициент "крутизны" выхода</param>
         public ActivateFunctions(int _ActFunc = -1, double _threshold = double.NaN, double _t = 1)
+        {
+            if (_ActFunc != -1)
+            {
+                ActFuncIndex = _ActFunc;
+            }
+            Threshold = _threshold;
+            T = new double[1] { _t};
+        }
+        public ActivateFunctions(double[] _t, int _ActFunc = -1, double _threshold = double.NaN)
         {
             if (_ActFunc != -1)
             {
@@ -110,8 +119,8 @@ namespace Ney
         private double Sigmoid(Double _input)
         {
             Double output = double.NaN;
-            if (T != double.NaN)
-            {output = 1 / (1 + System.Math.Exp(-T * _input));}
+            if (T[0] != double.NaN)
+            {output = 1 / (1 + System.Math.Exp(-T[0] * _input));}
             return output;
         }
         /// <summary>
@@ -122,9 +131,9 @@ namespace Ney
         private Double HyperbolicTangens(Double _input)
         {
             Double output = double.NaN;
-            if (T != double.NaN)
+            if (T[0] != double.NaN)
             {
-               output = System.Math.Tanh(T * _input);
+               output = System.Math.Tanh(T[0] * _input);
             }
             return output;
         }
