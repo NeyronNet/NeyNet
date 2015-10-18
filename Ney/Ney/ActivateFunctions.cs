@@ -1,12 +1,42 @@
 ﻿using System;
-
+// TODO:Задание границ выходных значений
 namespace Ney
 {
     public class ActivateFunctions
     {
         private int ActFuncIndex = -1; //Индекс активационной функции
-        private double Threshold = double.NaN; //Граница
+        private double Threshold,min,max = double.NaN; //Граница
         private double Nu = double.NaN; //Коэфициент
+        /// <summary>
+        /// Минимум активационной функции
+        /// </summary>
+        public double MinThreshold
+        {
+            get { return min;}
+            set
+            {
+                if(value<Threshold)
+                {
+                    min = value; //Задать минимум, выдаваемый активационной функцией
+                }
+            }
+        }
+        /// <summary>
+        /// Максимум активационной функции
+        /// </summary>
+        public double MaxThreshold
+        {
+            get { return max; }
+            set
+            {
+                if (value > Threshold)
+                {
+                    max = value; //Задать максимум, выдаваемый активационной функцией
+                }
+            }
+
+        }
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -54,7 +84,7 @@ namespace Ney
             double output = double.NaN;
             if (Threshold != double.NaN)
             {
-                output = (_input <= Threshold) ? 0.0 : 1.0; //Если меньше либо равен границе, то 0, иначе 1
+                output = (_input <= Threshold) ? min : max; //Если меньше либо равен границе, то 0, иначе 1
             }
             
             return output;
